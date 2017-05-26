@@ -2,6 +2,10 @@
 	include 'conex.php';
 	$flag=$_POST['flag'];
 	$con=Conectarse();
+	function FunctionName($value='')
+	{
+		# code...
+	}
 	if ($flag='log-val') {
 		$usuario=$_POST['u'];
 		$password=$_POST['p'];
@@ -9,15 +13,17 @@
 		$resultado=mysqli_query($con,$sql);
 		$numRows=mysqli_num_rows($resultado);
 		if ($resultado->num_rows===1){
-		echo "Si";
-	}
-	else{
-		echo "No";
-	}
+			echo "Si";
+		}
+		else{
+			echo "No";
+		}
 		
 	}
 	elseif ($flag='getPerfil') {
-		echo "Perfil";
+		$userId=$_POST['u'];
+		$userMode=validateUserMode($userId);
+
 	}
 	elseif ($flag='getDisponibles') {
 		echo "Disponibles";

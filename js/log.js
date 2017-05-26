@@ -1,8 +1,6 @@
 function login() {
 	correo=document.getElementById('Cor').value;
 	pass=document.getElementById('pass').value;
-	alert(correo)
-	alert(pass)
 	enviar=new XMLHttpRequest;
 	enviar.open('POST','php/usuario.php');
 	enviar.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -10,6 +8,7 @@ function login() {
 		enviar.onreadystatechange = function(){
 	  	if(enviar.readyState == 4 && enviar.status == 200){
 	  		respuesta=enviar.responseText;
+	  		alert(respuesta)
 	  		if (respuesta=="Si") {
 	  			window.location.assign('perfil.html')
 	  		}

@@ -4,7 +4,7 @@
    $host = "localhost";
    $user = "root";
    $pass = "";
-   $database = "apptorres";
+   $database = "torres";
 
    $link = new mysqli($host, $user, $pass, $database);
    $acentos = $link->query("SET NAMES 'utf8'");
