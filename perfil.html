@@ -4,16 +4,17 @@
 	<title>Perfil</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+	<script type="text/javascript" src="js/perfil.js"></script>
 </head>
-<body>
+<body onload="loadProfile()">
 	<div class="header">
 		<div class="foto">
-			<img src="../img/usuario.jpg">
+			<img id="img-perfil">
 		</div>
 		<button>editar</button>
 	</div>
 	<div class="contenedor">
-		<h1>Jorge Torres</h1>
+		<h1 id="nombre">Jorge Torres</h1>
 		<h2>Proyectos Desarrollados</h2>
 			<div class="proyectos">
 				<input type="file" name="" placeholder="+">

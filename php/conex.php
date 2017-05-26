@@ -16,5 +16,12 @@
    }
 
 }
+function setSession($id){
+   $_SESSION['idUser']=$id;
+}
+function getSession(){
+   return $_SESSION['idUser'];
+}
+
 		
  ?>
