@@ -16,3 +16,36 @@ function loadProfile(argument) {
 	  	}
 	  }
 }
+function getApps(){
+	enviar=new XMLHttpRequest;
+	enviar.open('POST','php/usuario.php');
+	enviar.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	enviar.send('flag='+'prueba');
+	enviar.onreadystatechange = function(){
+	  	if(enviar.readyState == 4 && enviar.status == 200){
+	  		respuesta=enviar.responseText;
+	  		var myObj=JSON.parse(respuesta);
+	  		alert(myObj);
+
+	  	}
+	  }
+}
+function getEvaluations(){
+	enviar=new XMLHttpRequest;
+	enviar.open('POST','php/usuario.php');
+	enviar.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	enviar.send('flag='+'prueba');
+	enviar.onreadystatechange = function(){
+	  	if(enviar.readyState == 4 && enviar.status == 200){
+	  		respuesta=enviar.responseText;
+	  		var myObj=JSON.parse(respuesta);
+	  		alert(myObj);
+	  	}
+	  }
+}
+function addEvaluation(){
+	window.location.assign('addEvaluation.html')
+}
+function addApplication(){
+	window.location.assign('addApplication.html')
+}

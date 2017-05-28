@@ -39,14 +39,35 @@
 		$arreglo = array('name' => $row[1],'img'=>$row[7] );
 		echo json_encode($arreglo);
 	}
-	elseif ($flag=='getDisponibles') {
-		echo "Disponibles";
+	elseif($flag=='prueba'){
+		$session=getSession();
+		getEvaluationsDeveloper($session);
 	}
-	elseif ($flag=='getResueltas') {
-		
+	Function getAppsDeveloper($id) {
+		$con=Conectarse();
+		$arreglo=array();
+		 $sql="SELECT * FROM aplicacion WHERE IdUsuario=".$id;
+		$resultado=mysqli_query($con,$sql);
+		While($row = mysqli_fetch_assoc($resultado)){
+			array_push($arreglo,array('id'=>$row['idAplicacion'], 'name'=>$row['nombre']));
+		}
+		echo json_encode($arreglo);
 	}
-	elseif ($flag=='') {
-		
+	function getEvaluationsDeveloper($id) {
+		$con=Conectarse();
+		$arreglo=array();
+		$sql="SELECT * FROM evaluacion WHERE idAplicacion IN (SELECT idAplicacion FROM aplicacion WHERE IdUsuario=".$id.")";
+		$resultado=mysqli_query($con,$sql);
+		While($row = mysqli_fetch_assoc($resultado)){
+			array_push($arreglo,array('id'=>$row['idEvaluacion'], 'name'=>$row['titulo']));
+		}
+		echo json_encode($arreglo);
 	}
 	
+	/*
+	$resultado=mysqli_query($con,$sql);
+		While($row = mysqli_fetch_assoc($resultado)){
+			array_push($arreglo,array('id'=>$row['idAplicacion'], 'name'=>$row['nombre']));
+		}
+		echo json_encode($arreglo);*/
  ?>
