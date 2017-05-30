@@ -12,9 +12,22 @@ var mm = today.getMonth()+1; //January is 0!
 var yyyy = today.getFullYear();
 
 fecha=yyyy+'/'+mm+'/'+dd;
-function addApp(argument) {
+function addApp() {
 	enviar=new XMLHttpRequest;
 	enviar.open('POST','php/developerApplication.php');
+	enviar.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	enviar.send('flag='+'addApp'+'&name='+name+'&url='+urls+'&description='+descripcion+'&date='+fecha);
+		enviar.onreadystatechange = function(){
+	  	if(enviar.readyState == 4 && enviar.status == 200){
+	  		respuesta=enviar.responseText;
+	  		alert(respuesta)
+
+	  	}
+	  }
+}
+function addEvaluation(){
+	enviar=new XMLHttpRequest;
+	enviar.open('POST','php/developerEvaluation.php');
 	enviar.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	enviar.send('flag='+'addApp'+'&name='+name+'&url='+urls+'&description='+descripcion+'&date='+fecha);
 		enviar.onreadystatechange = function(){
