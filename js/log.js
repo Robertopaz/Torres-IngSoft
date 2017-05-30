@@ -8,9 +8,8 @@ function login() {
 		enviar.onreadystatechange = function(){
 	  	if(enviar.readyState == 4 && enviar.status == 200){
 	  		respuesta=enviar.responseText;
-	  		alert(respuesta)
 	  		if (respuesta=="Si") {
-	  			window.location.assign('perfil.html')
+	  			window.location.assign('main.html')
 	  		}
 	  		
 	  	}

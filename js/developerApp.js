@@ -10,6 +10,7 @@ var today = new Date();
 var dd = today.getDate();
 var mm = today.getMonth()+1; //January is 0!
 var yyyy = today.getFullYear();
+var objtActivities=[]
 
 fecha=yyyy+'/'+mm+'/'+dd;
 function addApp() {
@@ -37,4 +38,20 @@ function addEvaluation(){
 
 	  	}
 	  }
+}
+function addActivity(){
+	nombre=document.getElementById('nameActivity').value;
+	description=document.getElementById('descriptionActivity').value;
+	objActivity={"name": nombre, "description": description};
+	objJson= JSON.stringify(objActivity);
+
+	alert(objActivity)
+	listActivities(objActivity)
+}
+function listActivities(obj){
+	objtActivities.push(obj);
+}
+function jsonActivities(){
+	objtActivities=JSON.stringify(objtActivities);
+	alert(objtActivities);
 }

@@ -41,6 +41,11 @@
 	}
 	elseif($flag=='prueba'){
 		$session=getSession();
+		getAppsDeveloper($session);
+		
+	}
+	elseif ($flag=='getEvals') {
+		$session=getSession();
 		getEvaluationsDeveloper($session);
 	}
 	Function getAppsDeveloper($id) {
@@ -49,7 +54,7 @@
 		 $sql="SELECT * FROM aplicacion WHERE IdUsuario=".$id;
 		$resultado=mysqli_query($con,$sql);
 		While($row = mysqli_fetch_assoc($resultado)){
-			array_push($arreglo,array('id'=>$row['idAplicacion'], 'name'=>$row['nombre']));
+			array_push($arreglo,array('id'=>$row['idAplicacion'], 'name'=>$row['nombre'],'description'=>$row['Descripcion']));
 		}
 		echo json_encode($arreglo);
 	}
@@ -59,7 +64,7 @@
 		$sql="SELECT * FROM evaluacion WHERE idAplicacion IN (SELECT idAplicacion FROM aplicacion WHERE IdUsuario=".$id.")";
 		$resultado=mysqli_query($con,$sql);
 		While($row = mysqli_fetch_assoc($resultado)){
-			array_push($arreglo,array('id'=>$row['idEvaluacion'], 'name'=>$row['titulo']));
+			array_push($arreglo,array('id'=>$row['idEvaluacion'], 'name'=>$row['titulo'],'description'=>$row['Descripcion']));
 		}
 		echo json_encode($arreglo);
 	}
