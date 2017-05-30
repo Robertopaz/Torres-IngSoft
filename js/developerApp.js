@@ -11,6 +11,7 @@ var dd = today.getDate();
 var mm = today.getMonth()+1; //January is 0!
 var yyyy = today.getFullYear();
 var objtActivities=[]
+var objtQuestions=[]
 
 fecha=yyyy+'/'+mm+'/'+dd;
 function addApp() {
@@ -39,13 +40,15 @@ function addEvaluation(){
 	  	}
 	  }
 }
+/*Crea un json para mandar posteriormente por ajax al archivo php y registrar actividades*/
 function addActivity(){
 	nombre=document.getElementById('nameActivity').value;
 	description=document.getElementById('descriptionActivity').value;
+	listaActividades=document.getElementById('listaActividades');
 	objActivity={"name": nombre, "description": description};
 	objJson= JSON.stringify(objActivity);
-
 	alert(objActivity)
+	listaActividades.innerHTML+="<li>Titulo:"+objActivity.name+" Descipción:"+objActivity.description+"</li>";
 	listActivities(objActivity)
 }
 function listActivities(obj){
@@ -54,4 +57,22 @@ function listActivities(obj){
 function jsonActivities(){
 	objtActivities=JSON.stringify(objtActivities);
 	alert(objtActivities);
+}
+/*Crea un json para mandar posteriormente por ajax al archivo php y registrar Preguntas al formulario*/
+function addQuestion(){
+	nombre=document.getElementById('nameQuestion').value;
+	description=document.getElementById('descriptionQuestion').value;
+	listaPreguntas=document.getElementById('listaPreguntas');
+	objActivity={"name": nombre, "description": description};
+	objJson= JSON.stringify(objActivity);
+	alert(objActivity)
+	listaPreguntas.innerHTML+="<li>Titulo:"+objActivity.name+" Descipción:"+objActivity.description+"</li>";
+	listQuestions(objActivity)
+}
+function listQuestions(obj){
+	objtQuestions.push(obj);
+}
+function jsonQuestions(){
+	objtQuestions=JSON.stringify(objtQuestions);
+	alert(objtQuestions);
 }
