@@ -18,7 +18,7 @@ function addApp() {
 	enviar=new XMLHttpRequest;
 	enviar.open('POST','php/developerApplication.php');
 	enviar.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	enviar.send('flag='+'addApp'+'&name='+name+'&url='+urls+'&description='+descripcion+'&date='+fecha);
+	enviar.send('flag='+'addApp'+'&name='+localStorage.nombre+'&url='+localStorage.urlApp+'&description='+localStorage.descripcion+'&date='+fecha+'&edadmin='+localStorage.edadmin+'&edadmax='+localStorage.edadmax+'&cat='+arreglo.toString());
 		enviar.onreadystatechange = function(){
 	  	if(enviar.readyState == 4 && enviar.status == 200){
 	  		respuesta=enviar.responseText;
@@ -75,4 +75,40 @@ function listQuestions(obj){
 function jsonQuestions(){
 	objtQuestions=JSON.stringify(objtQuestions);
 	alert(objtQuestions);
+}
+
+arreglo=[];
+localStorage.setItem('preferencias',"")
+function getEvaluationDescription() {
+	urlApp=document.getElementById('url').value;
+	nombre=document.getElementById('nombre').value;
+	descripcion=document.getElementById('descripcion').value;
+	genero=document.getElementById('genero').value
+	edadmin=document.getElementById('edmenor').value;
+	edadmax=document.getElementById('edmayor').value;
+	setEvaluationDescription(urlApp,nombre,descripcion,genero,edadmin,edmayor)
+}
+function setEvaluationDescription(urlApp,nombre,descripcion,genero,edadmin,edadmax) {
+	localStorage.setItem('urlApp',urlApp)
+	localStorage.setItem('nombre',nombre)
+	localStorage.setItem('descripcion',descripcion)
+	localStorage.setItem('genero',genero)
+	localStorage.setItem('edadmin',edadmin)
+	localStorage.setItem('edadmax',edadmax)
+	goToPreferenciasApp()
+	
+}
+function addPref(value) {
+	alert(value)
+	if (arreglo.indexOf(value)==-1) {
+		arreglo.push(value)
+	}
+	else{
+		
+		arreglo.pop(value)
+	}
+}
+
+function goToPreferenciasApp() {
+	window.location.assign('subirevalprefe.html')
 }

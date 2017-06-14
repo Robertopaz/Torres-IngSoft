@@ -8,7 +8,7 @@
 	<script src="js/funciones.js"></script>
 </head>
 <body>
-<div class="pantalla registro">
+<div class="pantalla" style="overflow-y: scroll; padding-bottom: 20px">
 <h1><b>u</b>Test</h1>
 <p>Registrate y<br>
 Comienza a probar <br>
@@ -17,16 +17,16 @@ con usuarios reales.</p>
 <input type="text" id="n" placeholder="Nombre">
 <input type="text" id="a" placeholder="Apellido">
 <input type="date" id="u" placeholder="Fecha de Nacimiento">
-<select>
+<select id="s">
 	<option style="display: none;">Sexo</option>
 	<option>Hombre</option>
 	<option>Mujer</option>
 </select>
-<input type="text" id="u" placeholder="Correo">
+<input type="text" id="c" placeholder="Correo">
 <input type="password" id="p" placeholder="Password">
 <input type="password" id="p2" placeholder="Confirma Password">
 
-<button>Registrarme</button>
+<button onclick="registerUser()">Registrarme</button>
 <a href="index.html">- o Inicia Sesión -</a>
 
 </div>

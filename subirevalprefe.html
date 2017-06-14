@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">	
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+	<script src="js/funciones.js"></script>
+		<script src="js/developerApp.js"></script>
+
+</head>
+
+<body>
+	<div class="pantalla preferencias" style="overflow-y: scroll;">
+		<p style="margin-top: 30px; margin-bottom: 20px;">Ayudanos seleccionando las <br>
+		categorías que describan <br>mejor a tu aplicación.</p>
+
+		<input type="checkbox" id="chck1" name="preferencias"><label for="chck1" 	onclick="addPref(this.innerHTML)" 	class="preferencia">Arte y Diseño</label>
+		<input type="checkbox" id="chck2" name="preferencias"><label for="chck2" 	onclick="addPref(this.innerHTML)" 	class="preferencia margizq">Automoción</label>
+		<input type="checkbox" id="chck3" name="preferencias"><label for="chck3" 	onclick="addPref(this.innerHTML)" 	class="preferencia">Belleza</label>
+		<input type="checkbox" id="chck4" name="preferencias"><label for="chck4" 	onclick="addPref(this.innerHTML)" 	class="preferencia margizq">Casa y Hogar</label>
+		<input type="checkbox" id="chck5" name="preferencias"><label for="chck5" 	onclick="addPref(this.innerHTML)" 	class="preferencia">Comida</label>
+		<input type="checkbox" id="chck6" name="preferencias"><label for="chck6" 	onclick="addPref(this.innerHTML)" 	class="preferencia margizq">Comics</label>
+		<input type="checkbox" id="chck7" name="preferencias"><label for="chck7" 	onclick="addPref(this.innerHTML)" 	class="preferencia">Compras</label>
+		<input type="checkbox" id="chck8" name="preferencias"><label for="chck8" 	onclick="addPref(this.innerHTML)" 	class="preferencia margizq">Comunicación</label>
+		<input type="checkbox" id="chck9" name="preferencias"><label for="chck9" 	onclick="addPref(this.innerHTML)" 	class="preferencia">Deportes</label>
+		<input type="checkbox" id="chck10" name="preferencias"><label for="chck10" 	onclick="addPref(this.innerHTML)" 	class="preferencia margizq">Educación</label>
+		<input type="checkbox" id="chck11" name="preferencias"><label for="chck11" 	onclick="addPref(this.innerHTML)" 	class="preferencia">Empresas</label>
+		<input type="checkbox" id="chck12" name="preferencias"><label for="chck12" 	onclick="addPref(this.innerHTML)" 	class="preferencia margizq">Entretenimiento</label>
+		<input type="checkbox" id="chck13" name="preferencias"><label for="chck13" 	onclick="addPref(this.innerHTML)" 	class="preferencia">Finanzas</label>
+		<input type="checkbox" id="chck14" name="preferencias"><label for="chck14" 	onclick="addPref(this.innerHTML)" 	class="preferencia margizq">Fotografía</label>
+		<input type="checkbox" id="chck15" name="preferencias"><label for="chck15" 	onclick="addPref(this.innerHTML)" 	class="preferencia">Herramientas</label>
+		<input type="checkbox" id="chck16" name="preferencias"><label for="chck16" 	onclick="addPref(this.innerHTML)" 	class="preferencia margizq">Libros</label>
+		<input type="checkbox" id="chck17" name="preferencias"><label for="chck17" 	onclick="addPref(this.innerHTML)" 	class="preferencia">Mapas</label>
+		<input type="checkbox" id="chck18" name="preferencias"><label for="chck18" 	onclick="addPref(this.innerHTML)" 	class="preferencia margizq">Medicina</label>
+		<input type="checkbox" id="chck19" name="preferencias"><label for="chck19" 	onclick="addPref(this.innerHTML)" 	class="preferencia">Música</label>
+		<input type="checkbox" id="chck20" name="preferencias"><label for="chck20" 	onclick="addPref(this.innerHTML)" 	class="preferencia margizq">Noticias</label>
+		<input type="checkbox" id="chck21" name="preferencias"><label for="chck21" 	onclick="addPref(this.innerHTML)" 	class="preferencia">Productividad</label>
+		<input type="checkbox" id="chck22" name="preferencias"><label for="chck22" 	onclick="addPref(this.innerHTML)" 	class="preferencia margizq">Social</label>
+		<input type="checkbox" id="chck23" name="preferencias"><label for="chck23" 	onclick="addPref(this.innerHTML)" 	class="preferencia">Viajes</label>
+		<input type="checkbox" id="chck24" name="preferencias"><label for="chck24" 	onclick="addPref(this.innerHTML)" 	class="preferencia margizq">Tiempo</label>
+		<input type="checkbox" id="chck25" name="preferencias"><label for="chck25" 	onclick="addPref(this.innerHTML)" 	class="preferencia">Juegos Acción</label>
+		<input type="checkbox" id="chck26" name="preferencias"><label for="chck26" 	onclick="addPref(this.innerHTML)" 	class="preferencia margizq">Juegos Arcade</label>
+		<input type="checkbox" id="chck27" name="preferencias"><label for="chck27" 	onclick="addPref(this.innerHTML)" 	class="preferencia">Juegos Aventura</label>
+		<input type="checkbox" id="chck28" name="preferencias"><label for="chck28" 	onclick="addPref(this.innerHTML)" 	class="preferencia margizq">Juegos Carreras</label>
+		<input type="checkbox" id="chck29" name="preferencias"><label for="chck29" 	onclick="addPref(this.innerHTML)" 	class="preferencia">Juegos Casino</label>
+		<input type="checkbox" id="chck30" name="preferencias"><label for="chck30" 	onclick="addPref(this.innerHTML)" 	class="preferencia margizq">Juegos Deportes</label>
+		<input type="checkbox" id="chck31" name="preferencias"><label for="chck31" 	onclick="addPref(this.innerHTML)" 	class="preferencia">Juegos Educación</label>
+		<input type="checkbox" id="chck32" name="preferencias"><label for="chck32" 	onclick="addPref(this.innerHTML)" 	class="preferencia margizq">Juegos Estrategia</label>
+		<input type="checkbox" id="chck33" name="preferencias"><label for="chck33" 	onclick="addPref(this.innerHTML)" 	class="preferencia">Juegos Mesa</label>
+		<input type="checkbox" id="chck34" name="preferencias"><label for="chck34" 	onclick="addPref(this.innerHTML)" 	class="preferencia margizq">Juegos Música</label>
+		<input type="checkbox" id="chck35" name="preferencias"><label for="chck35" 	onclick="addPref(this.innerHTML)" 	class="preferencia">Juegos Palabras</label>
+		<input type="checkbox" id="chck36" name="preferencias"><label for="chck36" 	onclick="addPref(this.innerHTML)" 	class="preferencia margizq">Juegos Preguntas</label>
+
+		<button onclick="addApp()">Continuar</button>
+
+	</div>
+</body>
+</html>

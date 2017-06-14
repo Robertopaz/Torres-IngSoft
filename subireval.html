@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">	
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+	<script src="js/funciones.js"></script>
+	<script src="js/developerApp.js"></script>
+</head>
+
+<body>
+	<div class="contenido" style="margin-top: 10px; padding:20px !important; box-sizing: border-box;">
+		<h5>Selecciona las <b>opciones</b> que te ayuden a <b>describir</b> a los usuarios potenciales de tu <b>aplicación</b>.</h5>
+		<p>Introduce la URL de tu proyecto</p>
+		<input type="url" id="url" placeholder="url de mi proyecto">
+		<p>Escribe el nombre de tu aplicación</p>
+		<input type="text" id="nombre" placeholder="Nombre de la App">
+		<p>Describe concisamente lo que hace tu aplicación</p>
+		<textarea placeholder="Descripción de la App" id="descripcion"></textarea>
+		<p>Selecciona el género que desees que evalue tu aplicación</p>
+		<select id="genero">
+			<option>Selecciona un género...</option>
+			<option>Hombre</option>
+			<option>Mujer</option>
+			<option>Ambos</option>
+		</select>
+		<p>Selecciona el mínimo de edad que desees evalue tu aplicación</p>
+		<div class="rangos">
+			<input type="range" min="15" max="60" step="1" oninput="valor1()" id="edmenor" value="15">
+			<label id="edadmen"></label>
+		</div>
+		<p>Selecciona el máximo de edad que desees evalue tu aplicación</p>
+		<div class="rangos">
+			<input type="range" min="15" max="60" step="1" oninput="valor2()" id="edmayor" value="60">
+			<label id="edadmay"></label>
+		</div>
+		<button onclick="getEvaluationDescription()">Continuar</button>
+	</div>
+</body>
+</html>

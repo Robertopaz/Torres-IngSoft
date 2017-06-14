@@ -16,11 +16,15 @@
    }
 
 }
-function setSession($id){
+function setSession($id,$type){
    $_SESSION['idUser']=$id;
+   $_SESSION['type']=$type;
 }
 function getSession(){
    return $_SESSION['idUser'];
+}
+function getTypeSession(){
+   return $_SESSION['type'];
 }
 
 		

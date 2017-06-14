@@ -13,10 +13,11 @@
 		$sql="SELECT * FROM usuario WHERE correo='".$usuario."' AND contrasena='".$password."'";
 		$resultado=mysqli_query($con,$sql);
 		$row=mysqli_fetch_array($resultado,MYSQLI_NUM);
+
 		$numRows=mysqli_num_rows($resultado);
 		if ($resultado->num_rows===1){
+			setSession($row[0],$row[8]);
 			echo "Si";
-			setSession($row[0]);
 		}
 		else{
 			echo "No";
@@ -32,7 +33,7 @@
 			if ($row[4]=="M") {
 				$row[7]="man.png";
 			}
-			else{
+			elseif($row[4]=="F"){
 				$row[7]="woman.png";
 			}
 		}
@@ -47,6 +48,23 @@
 	elseif ($flag=='getEvals') {
 		$session=getSession();
 		getEvaluationsDeveloper($session);
+	}
+	elseif ($flag=='getPoints') {
+		$session=getSession();
+		getPuntos($session);
+	}
+	elseif ($flag=="register") {
+		$nombre=$_POST['name'];
+		$correo=$_POST['email'];
+		$contrasena=$_POST['pass'];
+		$sexo=$_POST['sex'];
+		$edad=$_POST['old'];
+		registerUser($nombre,$correo,$contrasena,$sexo,$edad);
+	}
+	function registerUser($nombre,$correo,$contrasena,$sexo,$edad)
+	{
+		$sql="SELECT * FROM usuario WHERE correo='".$correo."'";
+		echo $sql;
 	}
 	Function getAppsDeveloper($id) {
 		$con=Conectarse();
@@ -67,6 +85,15 @@
 			array_push($arreglo,array('id'=>$row['idEvaluacion'], 'name'=>$row['titulo'],'description'=>$row['Descripcion']));
 		}
 		echo json_encode($arreglo);
+	}
+	function getPuntos($id){
+		$con=Conectarse();
+		$sql="SELECT SUM(util) as util,SUM(Aporta) as Aporta,SUM(tiempoRespuesta) as tiempoRespuesta FROM valoracion  WHERE IdUsuario=".$id.";";
+		$resultado=mysqli_query($con,$sql);
+		While($row = mysqli_fetch_assoc($resultado)){
+			$puntos=$row['util']+$row['Aporta']+$row['tiempoRespuesta'];
+			echo $puntos;
+		}
 	}
 	
 	/*

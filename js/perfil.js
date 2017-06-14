@@ -1,25 +1,26 @@
 function loadProfile() {
-	enviar=new XMLHttpRequest;
-	enviar.open('POST','php/usuario.php');
-	enviar.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	enviar.send('flag='+'load-profile');
-	enviar.onreadystatechange = function(){
-	  	if(enviar.readyState == 4 && enviar.status == 200){
-	  		respuesta=enviar.responseText;
+	enviar2=new XMLHttpRequest;
+	enviar2.open('POST','php/usuario.php');
+	enviar2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	enviar2.send('flag='+'load-profile');
+	enviar2.onreadystatechange = function(){
+	  	if(enviar2.readyState == 4 && enviar2.status == 200){
+	  		respuesta=enviar2.responseText;
 	  		var myObj=JSON.parse(respuesta);
-	  		imagenPerfil=document.getElementById('img-perfil');
+	  		imagenPerfil=document.getElementById('imagenUsuario');
 	  		nombre=document.getElementById('nombre');
-	  		
 	  		nombre.innerHTML=myObj.name;
+	  		imagenPerfil.src="img/"+myObj.img;
 
 	  	}
+	  	getApps()
 	  }
-	  getApps()
-	  alert("empieza")
+	  
+	  
 	  
 }
 function getApps(){
-	alert("getaapp")
+	
 	listApps=document.getElementById('apps')
 	contadorapps=document.getElementById('contadorApps')
 	enviar=new XMLHttpRequest;
@@ -31,7 +32,7 @@ function getApps(){
 
 	  	if(enviar.readyState == 4 && enviar.status == 200){
 	  		respuesta=enviar.responseText;
-	  		alert(respuesta)
+	  		
 	  		var myObj=JSON.parse(respuesta);
 	  		contadorapps.innerHTML=myObj.length;
 	  		for (var i = 0; i <= myObj.length-1; i++) {
@@ -51,7 +52,7 @@ function getApps(){
 	  }
 }
 function getEvaluations(){
-	alert("getEvaluations")
+
 	listaEval=document.getElementById('evaluations')
 	enviar=new XMLHttpRequest;
 	enviar.open('POST','php/usuario.php');
@@ -73,6 +74,23 @@ function getEvaluations(){
 				"</div>"+
 			"</div>";
 	  		}
+	  		 getPoints()
+	  	}
+	  }
+}
+function getPoints(){
+
+	contadorPuntos=document.getElementById('contadorPuntos');
+	enviar.open('POST','php/usuario.php');
+	enviar.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	enviar.send('flag='+'getPoints');
+	enviar.onreadystatechange = function(){
+	  	if(enviar.readyState == 4 && enviar.status == 200){
+	  		respuesta=enviar.responseText;
+	  		if (respuesta=="") {
+	  			respuesta=0;
+	  		}
+	  		contadorPuntos.innerHTML=respuesta
 	  	}
 	  }
 }
